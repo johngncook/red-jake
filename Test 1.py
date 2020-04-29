@@ -1,5 +1,3 @@
-import pyttsx3
+message = input("say something bitch: ")
 
-engine = pyttsx3.init()
-engine.say("Testing")
-engine.runAndWait()
+print (message)

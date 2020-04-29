@@ -2,6 +2,9 @@ import pyttsx3
 import datetime
 import speech_recognition as sr
 import wikipedia
+import webbrowser
+import os
+import re
 
 
 engine = pyttsx3.init('sapi5')
@@ -51,16 +54,42 @@ if __name__ == "__main__":
     while True:
         query = takecommand().lower()
         if 'wikipedia' in query:
+            speak('What would you like to lookup?')
+            lookup_query = takecommand().lower()
             speak('Searching Wikipedia')
-            query = query.replace("wikipedia", "")
-            results = wikipedia.summary(query, sentences=2)
+            results = wikipedia.summary(lookup_query, sentences=2)
             speak("According to Wikipedia")
             print(results)
             speak(results)
 
+        elif 'open reddit' in query:
+            reg_ex = re.search('open reddit (.*)', query)
+            url = 'https://www.reddit.com/'
+            if reg_ex:
+                subreddit = reg_ex.group(1)
+                url = url + 'r/' + subreddit
+            webbrowser.open(url)
+            sofiaResponse('The Reddit content has been opened for you Sir.')
+
+        elif 'open youtube' in query:
+             webbrowser.open("https://www.youtube.com/")
+
+        elif 'open google' in query:
+            webbrowser.open("https://www.google.com/")
+
+        elif 'open maps' in query:
+            webbrowser.open("https://www.google.com/maps")
+
+        elif 'open blog' in query:
+            jarvis_path = "C:\\Users\\johns\\mango_tree\\mango_tree\\settings.py"
+            os.startfile(jarvis_path)
+
+
         else:
-            speak('That is good to hear sir.')
-            speak('If you need assistance, please let me know!')
+            if 'stop' or 'enough' or 'I am good' in query:
+                speak('That is good to hear sir.')
+                speak('If you need assistance, please let me know!')
+                exit()
 
 
     # Logic for executing tasks based on query
