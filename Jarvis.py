@@ -6,7 +6,7 @@ from app_functions import *
 
 
 if __name__ == "__main__":
-    wish_Me()
+    greet()
     while True:
         """Loop to choose a command."""
         query = takecommand().lower()
