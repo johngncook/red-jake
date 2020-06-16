@@ -1,57 +1,14 @@
-import pyttsx3
-import datetime
-import speech_recognition as sr
 import wikipedia
 import webbrowser
-import os
 import re
 
-
-engine = pyttsx3.init('sapi5')
-voices = engine.getProperty('voices')
-#print(voices[1].id)
-engine.setProperty('voice', voices[0].id)
-
-def speak(audio):
-    engine.say(audio)
-    engine.runAndWait()
-
-def wish_Me():
-    hour = int(datetime.datetime.now().hour)
-    if hour >= 0 and hour < 12:
-        speak ("Good Morning!")
-    elif hour >= 12 and hour <18:
-        speak("Good Afternoon")
-    else:
-        speak ("Good Evening!")
-
-    speak (" I am Jarvis Sir. How may I help you today?")
-
-
-# Takes micrphone input and returns string output
-def takecommand():
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Listening...")
-        r.pause_threshold = 1
-        audio = r.listen(source)
-
-    try:
-        print("Recognizing....")
-        query = r.recognize_google(audio)
-        print(f"User said: {query}\n")
-
-    except Exception as e:
-        #print(e)
-        print("Say that again please...")
-        return "None"
-
-    return query
+from app_functions import *
 
 
 if __name__ == "__main__":
     wish_Me()
     while True:
+        """Loop to choose a command."""
         query = takecommand().lower()
         if 'wikipedia' in query:
             speak('What would you like to lookup?')
@@ -69,7 +26,7 @@ if __name__ == "__main__":
                 subreddit = reg_ex.group(1)
                 url = url + 'r/' + subreddit
             webbrowser.open(url)
-            sofiaResponse('The Reddit content has been opened for you Sir.')
+            speak('The Reddit content has been opened for you Sir.')
 
         elif 'open youtube' in query:
              webbrowser.open("https://www.youtube.com/")
@@ -79,10 +36,6 @@ if __name__ == "__main__":
 
         elif 'open maps' in query:
             webbrowser.open("https://www.google.com/maps")
-
-        elif 'open blog' in query:
-            jarvis_path = "C:\\Users\\johns\\mango_tree\\mango_tree\\settings.py"
-            os.startfile(jarvis_path)
 
 
         else:
