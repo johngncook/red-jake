@@ -1,4 +1,4 @@
-# Red-Jake
+# red-jake
 Red Jake is a personal assistant developed in python using pyttsx3, a text-to-speech conversion library.
 Uses wikipedia and wolframalpha apis
 
