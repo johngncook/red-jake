@@ -26,12 +26,13 @@ pip install wolframalpha
 ```
 
 ## Built With
-
 * [pyttsx3](https://pypi.org/project/pyttsx3/#:~:text=Programming%20Language-,Project%20description,both%20Python%202%20and%203.) - a text-to-speech conversion library in Python
 * [SpeechRecognition](https://pypi.org/project/SpeechRecognition/) - Library for performing speech recognition
 * [wolframalpha](https://www.wolframalpha.com/) - a computational knowledge engine or answer engine developed by WolframAlpha LLC
-*[wikipedia-api](https://pypi.org/project/Wikipedia-API) - is easy to use Python wrapper for Wikipedias’ API
+* [wikipedia-api](https://pypi.org/project/Wikipedia-API) - is easy to use Python wrapper for Wikipedias’ API
 
+
+ 
 ## Versioning
 
 git was used for version control.
