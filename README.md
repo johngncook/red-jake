@@ -40,5 +40,10 @@ git was used for version control.
 
 * **John Cook** - *Initial work* - [johngncook](https://github.com/johngncook)
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+
 
 
